@@ -106,7 +106,7 @@ call plug#end()
 " MAPPINGS --------------------------------------------------------------- {{{
 
 " Set the backslash as the leader key.
-let mapleader = "\"
+" let mapleader = "\"
 
 " Press \\ to jump back to the last cursor position.
 nnoremap <leader>\ ``
@@ -202,6 +202,13 @@ augroup cursor_off
     autocmd!
     autocmd WinLeave * set nocursorline nocursorcolumn
     autocmd WinEnter * set cursorline cursorcolumn
+augroup END
+
+" you can see your number of line better with numbertoggle.
+augroup numbertoggle
+    autocmd!
+    autocmd BufEnter, FocusGained, InsertLeave * set relativenumber
+    autocmd BufLeave, FocusLost, InsertEnter * set norelativenumber
 augroup END
 
 " If GUI version of Vim is running set these options.
